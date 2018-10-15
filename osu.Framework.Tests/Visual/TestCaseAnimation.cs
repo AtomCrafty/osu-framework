@@ -6,6 +6,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Animations;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Testing;
 using OpenTK;
@@ -26,29 +27,33 @@ namespace osu.Framework.Tests.Visual
                 RelativeSizeAxes = Axes.Both,
                 Children = new Drawable[]
                 {
-                    new DelayedLoadWrapper(new AvatarAnimation
+                    //new DelayedLoadWrapper(new AvatarAnimation
+                    //{
+                    //    AutoSizeAxes = Axes.None,
+                    //    RelativeSizeAxes = Axes.Both,
+                    //    Size = new Vector2(0.25f)
+                    //}),
+                    //drawableAnimation = new DrawableAnimation
+                    //{
+                    //    RelativePositionAxes = Axes.Both,
+                    //    Position = new Vector2(0f, 0.3f),
+                    //    AutoSizeAxes = Axes.None,
+                    //    RelativeSizeAxes = Axes.Both,
+                    //    Size = new Vector2(0.25f)
+                    //},
+                    new Svg
                     {
-                        AutoSizeAxes = Axes.None,
-                        RelativeSizeAxes = Axes.Both,
-                        Size = new Vector2(0.25f)
-                    }),
-                    drawableAnimation = new DrawableAnimation
-                    {
-                        RelativePositionAxes = Axes.Both,
-                        Position = new Vector2(0f, 0.3f),
-                        AutoSizeAxes = Axes.None,
-                        RelativeSizeAxes = Axes.Both,
-                        Size = new Vector2(0.25f)
+                        RelativeSizeAxes = Axes.Both
                     }
                 }
             });
 
-            drawableAnimation.AddFrames(new[]
-            {
-                new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Red }, 500),
-                new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Green }, 500),
-                new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Blue }, 500),
-            });
+            //drawableAnimation.AddFrames(new[]
+            //{
+                //new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Red }, 500),
+                //new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Green }, 500),
+                //new FrameData<Drawable>(new Box { Size = new Vector2(50f), Colour = Color4.Blue }, 500),
+            //});
         }
 
         private class AvatarAnimation : TextureAnimation
